@@ -1,6 +1,7 @@
 {
   "name": "movie_app_help",
   "version": "0.1.0",
+  "homepage": "https://Navse-Jlia.github.io/movieapp.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
@@ -20,6 +21,8 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -60,6 +63,7 @@
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "gh-pages": "^6.1.1",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.8.8"
