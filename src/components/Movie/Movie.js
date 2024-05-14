@@ -5,6 +5,7 @@ import { format } from 'date-fns'
 import { Progress, Rate } from 'antd'
 import { Consumer } from '../Context/Context'
 import movieService from '../services/services'
+import errorImg from './errorImg.jpg'
 
 class Movie extends Component {
   constructor(props) {
@@ -60,11 +61,7 @@ class Movie extends Component {
           <li className="wrapper">
             <section className="visual">
               <img
-                src={
-                  img
-                    ? `https://image.tmdb.org/t/p/w500${img}`
-                    : './/errorImg.jpg'
-                }
+                src={img ? `https://image.tmdb.org/t/p/w500${img}` : errorImg}
                 alt={title}
                 height="280px"
                 width="180px"
