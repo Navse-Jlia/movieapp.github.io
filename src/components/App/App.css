@@ -1,0 +1,42 @@
+.main {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.search-input {
+  margin-bottom: 20px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-list-container {
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.pagination-panel {
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.error-indicator {
+  margin-top: 20px;
+}
+
+.no-results {
+  margin-top: 20px;
+}
+
+.offline-message {
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  padding: 10px;
+}

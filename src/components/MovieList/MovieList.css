@@ -1,0 +1,10 @@
+html {
+  background-color: rgb(245, 239, 239);
+}
+
+.all-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: white;
+}
