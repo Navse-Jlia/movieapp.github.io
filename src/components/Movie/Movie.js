@@ -1,59 +1,59 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './Movie.css';
-import { format } from 'date-fns';
-import { Progress, Rate } from 'antd';
-import { Consumer } from '../Context/Context';
-import movieService from '../services/services';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import './Movie.css'
+import { format } from 'date-fns'
+import { Progress, Rate } from 'antd'
+import { Consumer } from '../Context/Context'
+import movieService from '../services/services'
 
 class Movie extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       rating: 0, // Изначальная оценка
-    };
+    }
   }
 
   componentDidMount() {
     // Загрузка оценки фильма
-    const { idForRate } = this.props;
-    const rating = movieService.getLocalRating(idForRate);
-    this.setState({ rating });
+    const { idForRate } = this.props
+    const rating = movieService.getLocalRating(idForRate)
+    this.setState({ rating })
   }
 
   componentDidUpdate(prevProps) {
     // при изменении id
     if (prevProps.idForRate !== this.props.idForRate) {
-      const { idForRate } = this.props;
-      const rating = movieService.getLocalRating(idForRate);
-      this.setState({ rating });
+      const { idForRate } = this.props
+      const rating = movieService.getLocalRating(idForRate)
+      this.setState({ rating })
     }
   }
 
   // сокращение текста
   cutText = (str) => {
-    const truncatedText = str.replace(/^(.{0,90}\S*).*$/, '$1');
-    return `${truncatedText}...`;
-  };
+    const truncatedText = str.replace(/^(.{0,90}\S*).*$/, '$1')
+    return `${truncatedText}...`
+  }
 
   // цвета оценки
   ratingColor = (n) => {
     switch (true) {
       case n >= 0 && n <= 3:
-        return '#E90000';
+        return '#E90000'
       case n > 3 && n <= 5:
-        return '#E97E00';
+        return '#E97E00'
       case n > 5 && n <= 7:
-        return '#E9D100';
+        return '#E9D100'
       default:
-        return '#66E900';
+        return '#66E900'
     }
-  };
+  }
 
   render() {
-    const { rating } = this.state;
+    const { rating } = this.state
     const { img, title, overview, date, genreId, vote, idForRate, onRate } =
-      this.props;
+      this.props
     return (
       <Consumer>
         {(genres) => (
@@ -63,7 +63,7 @@ class Movie extends Component {
                 src={
                   img
                     ? `https://image.tmdb.org/t/p/w500${img}`
-                    : '/errorImg.jpg'
+                    : './public/errorImg.jpg'
                 }
                 alt={title}
                 height="280px"
@@ -92,9 +92,9 @@ class Movie extends Component {
                       <p className="box__genre" key={el.id}>
                         {el.name}
                       </p>
-                    );
+                    )
                   }
-                  return null;
+                  return null
                 })}
                 {/* Описание */}
                 <p className="box__text">{this.cutText(overview)}</p>
@@ -106,8 +106,8 @@ class Movie extends Component {
                   count={10}
                   value={rating}
                   onChange={(star) => {
-                    onRate(idForRate, star);
-                    this.setState({ rating: star });
+                    onRate(idForRate, star)
+                    this.setState({ rating: star })
                   }}
                 />
               </div>
@@ -115,7 +115,7 @@ class Movie extends Component {
           </li>
         )}
       </Consumer>
-    );
+    )
   }
 }
 
@@ -129,11 +129,11 @@ Movie.propTypes = {
   vote: PropTypes.number.isRequired,
   idForRate: PropTypes.number.isRequired,
   onRate: PropTypes.func.isRequired,
-};
+}
 // по умолчанию
 Movie.defaultProps = {
   img: '',
   date: '',
-};
+}
 
-export default Movie;
+export default Movie

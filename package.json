@@ -52,8 +52,9 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.2.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.10.0",
     "eslint-config-react-app": "^7.0.1",
@@ -66,7 +67,7 @@
     "gh-pages": "^6.1.1",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.8.8"
+    "prettier": "^3.2.5"
   },
   "husky": {
     "hooks": {
