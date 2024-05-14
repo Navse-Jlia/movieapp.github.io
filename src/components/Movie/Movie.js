@@ -63,7 +63,7 @@ class Movie extends Component {
                 src={
                   img
                     ? `https://image.tmdb.org/t/p/w500${img}`
-                    : './public/errorImg.jpg'
+                    : 'public/errorImg.jpg'
                 }
                 alt={title}
                 height="280px"
